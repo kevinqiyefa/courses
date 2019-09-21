@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchCoursesRequest } from '../../store/actions/courses';
+import Loader from '../../components/Loader';
 
 function Homepage() {
   const { courses, loading } = useSelector(state => state.course);
@@ -16,7 +17,7 @@ function Homepage() {
     fetchCourse();
   }, [fetchCourse]);
 
-  return <div>sss</div>;
+  return loading || courses.length === 0 ? <Loader /> : <div>sss</div>;
 }
 
 export default Homepage;

@@ -23,7 +23,7 @@ const api = axios.create({
  * @returns {*} response data
  */
 
-export async function callAPI(method, path, authRequired, payload) {
+export async function callAPI(method, path, payload) {
   // set up headers specifically for this request
   // const requestHeaders = {};
   // if (authRequired) {

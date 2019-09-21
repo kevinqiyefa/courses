@@ -6,7 +6,9 @@ export function fetchCoursesRequest() {
     try {
       dispatch({ type: t.FETCH_COURSES_REQUEST });
       // call the API for /courses, auth required
-      let courses = await callAPI('get', '/courses', true);
+
+      let courses = await callAPI('get', '/courses');
+
       // dispatch the success action creator and the courses that we got back
       dispatch(fetchCoursesSuccess(courses));
     } catch (error) {
