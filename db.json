@@ -1,0 +1,14 @@
+{
+  "courses": [
+    {
+      "id": 111,
+      "subject": "Mathematics",
+      "period": 60,
+      "course_name": "Algebra I",
+
+      "students": [
+        { "id": 1, "first_name": "Kevin", "last_name": "Qi", "grade_level": 9 }
+      ]
+    }
+  ]
+}
