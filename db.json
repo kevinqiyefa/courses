@@ -5,6 +5,7 @@
       "subject": "Mathematics",
       "period": 60,
       "course_name": "Algebra I",
+      "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
 
       "students": [
         { "id": 1, "first_name": "Kevin", "last_name": "Qi", "grade_level": 9 }

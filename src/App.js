@@ -6,6 +6,7 @@ import Notfound from './components/NotFoundPage';
 import { configureStore } from './store';
 import Homepage from './containers/Homepage';
 import './App.css';
+import Header from './components/Header';
 
 const store = configureStore();
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Header />
         <div className="App">
           <Switch>
             <Route exact path="/" component={Homepage} />

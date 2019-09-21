@@ -2,5 +2,5 @@ export const FETCH_COURSES_REQUEST = 'FETCH_COURSES_REQUEST';
 export const FETCH_COURSES_SUCCESS = 'FETCH_COURSES_SUCCESS';
 export const FETCH_COURSES_FAIL = 'FETCH_COURSES_FAIL';
 
-export const SET_ERROR = 'SET_ERROR';
-export const CLEAR_ERROR = 'CLEAR_ERROR';
+// export const SET_ERROR = 'SET_ERROR';
+// export const CLEAR_ERROR = 'CLEAR_ERROR';

@@ -1,0 +1,4 @@
+.course-card-subject {
+  display: flex;
+  justify-content: space-between;
+}
