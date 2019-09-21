@@ -1,31 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
+import { Link } from 'react-router-dom';
 
-import Course from '../Course';
+import './style.css';
 
 function Courses({ courses }) {
-  console.log(courses);
-
   const displayCourses = courses.map(c => (
-    <Course
+    <Link
+      className="card border-primary mb-3 card-link-el"
       key={uuid()}
-      subject={c.subject}
-      period={c.period}
-      courseName={c.course_name}
-      description={c.course_description}
-    />
+      to={`/${c.id}`}
+    >
+      <h2 className="card-header">{c.course_name}</h2>
+      <div className="card-body">
+        <div className="course-card-subject">
+          <h5>Subject: {c.subject}</h5>
+          <h5>Length: {c.period} mins</h5>
+        </div>
+        <p className="card-text text-left">{c.course_description}</p>
+      </div>
+    </Link>
   ));
-  return (
-    <div className="jumbotron container mt-5">
-      <h1 className="display-3">Hello, Professor!</h1>
-      <p className="lead mb-5">
-        Welcome back! Here're your classes and students for the school year.
-      </p>
-
-      {displayCourses}
-    </div>
-  );
+  return displayCourses;
 }
 
 Courses.propTypes = {

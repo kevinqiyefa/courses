@@ -10,6 +10,18 @@
       "students": [
         { "id": 1, "first_name": "Kevin", "last_name": "Qi", "grade_level": 9 }
       ]
+    },
+
+    {
+      "id": 222,
+      "subject": "English",
+      "period": 45,
+      "course_name": "ENGL 101",
+      "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+
+      "students": [
+        { "id": 2, "first_name": "Tony", "last_name": "So", "grade_level": 10 }
+      ]
     }
   ]
 }
