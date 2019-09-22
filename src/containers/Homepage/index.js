@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
 import Courses from '../../components/Courses';
+import AddCourse from '../AddCourse';
 
 function Homepage() {
   const { courses, loading } = useSelector(state => state.course);
@@ -22,6 +23,9 @@ function Homepage() {
       <p className="lead mb-5">
         Welcome back! Here're your classes and students for the school year.
       </p>
+
+      <AddCourse />
+
       {content}
     </div>
   );

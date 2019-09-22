@@ -16,7 +16,7 @@ function Courses({ courses }) {
       <div className="card-body">
         <div className="course-card-subject">
           <h5>Subject: {c.subject}</h5>
-          <h5>Length: {c.period} mins</h5>
+          <h5>Length: {c.length} mins</h5>
         </div>
         <p className="card-text text-left">{c.course_description}</p>
       </div>

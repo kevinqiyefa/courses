@@ -2,8 +2,8 @@
   "courses": [
     {
       "id": 111,
-      "subject": "Mathematics",
-      "period": 60,
+      "subject": "Math",
+      "length": 60,
       "course_name": "Algebra I",
       "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
 
@@ -15,7 +15,7 @@
     {
       "id": 222,
       "subject": "English",
-      "period": 45,
+      "length": 45,
       "course_name": "ENGL 101",
       "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
 

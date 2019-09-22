@@ -7,7 +7,7 @@ import { configureStore } from './store';
 import Homepage from './containers/Homepage';
 import './App.css';
 import Header from './components/Header';
-import Course from './components/Course';
+import Course from './containers/Course';
 
 const store = configureStore();
 
