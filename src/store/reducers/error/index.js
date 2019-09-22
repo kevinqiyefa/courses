@@ -20,6 +20,13 @@ export default function errorReducer(state = DEFAULT_STATE, action) {
         title: 'Unable to fetch courses.',
         message: action.error.message
       };
+    case t.ADD_COURSES_FAIL:
+      return {
+        ...state,
+        hasError: true,
+        title: 'Unable to Add courses.',
+        message: action.error.message
+      };
     default:
       return state;
   }

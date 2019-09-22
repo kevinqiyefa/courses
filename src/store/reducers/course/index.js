@@ -15,6 +15,11 @@ export default function coursesReducer(state = DEFAULT_STATE, action) {
         courses: action.courses,
         loading: false
       };
+    case t.ADD_COURSES_SUCCESS:
+      return {
+        ...state,
+        courses: [...state.courses, action.course]
+      };
     default:
       return state;
   }

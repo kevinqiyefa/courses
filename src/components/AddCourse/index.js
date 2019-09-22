@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 import './style.css';
 import CourseForm from '../CourseForm';
+import PropTypes from 'prop-types';
 
 class AddCourse extends PureComponent {
   state = {
@@ -13,17 +14,24 @@ class AddCourse extends PureComponent {
   };
 
   handleInputChange = e => {
-    let value = e.target.value;
-    if (e.target.name === 'length') value = +value;
-    this.setState({ [e.target.name]: value });
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSliderChange = value => {
+    this.setState({ length: value });
   };
 
   isComplete = () => {
     return this.state.course_name && this.state.course_description;
   };
 
+  handleSubmit = () => {
+    if (this.isComplete()) {
+      this.props.addCoursesRequest(this.state);
+    }
+  };
+
   render() {
-    console.log(this.state);
     return (
       <>
         <div className="d-flex justify-content-end mb-5">
@@ -31,7 +39,7 @@ class AddCourse extends PureComponent {
             type="button"
             className="btn btn-primary add-course-btn"
             data-toggle="modal"
-            data-target="#exampleModalCenter"
+            data-target="#addCourseModal"
           >
             Add Course
           </button>
@@ -39,10 +47,10 @@ class AddCourse extends PureComponent {
 
         <div
           className="modal fade"
-          id="exampleModalCenter"
+          id="addCourseModal"
           tabIndex="-1"
           role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
+          aria-labelledby="addCourseModalTitle"
           aria-hidden="true"
         >
           <div className="modal-dialog modal-dialog-centered" role="document">
@@ -64,6 +72,7 @@ class AddCourse extends PureComponent {
                 <CourseForm
                   state={this.state}
                   handleInputChange={this.handleInputChange}
+                  handleSliderChange={this.handleSliderChange}
                 />
               </div>
               <div className="modal-footer">
@@ -78,6 +87,8 @@ class AddCourse extends PureComponent {
                   type="button"
                   className={`btn btn-primary ${!this.isComplete() &&
                     'disabled'}`}
+                  onClick={this.handleSubmit}
+                  data-dismiss={`${this.isComplete() && 'modal'}`}
                 >
                   Add Course
                 </button>
@@ -89,5 +100,9 @@ class AddCourse extends PureComponent {
     );
   }
 }
+
+AddCourse.propTypes = {
+  addCoursesRequest: PropTypes.func
+};
 
 export default AddCourse;

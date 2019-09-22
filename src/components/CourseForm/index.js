@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Slider from 'react-rangeslider';
+import 'react-rangeslider/lib/index.css';
+
 function CourseForm(props) {
   const { subject, length, course_name, course_description } = props.state;
 
@@ -43,27 +46,24 @@ function CourseForm(props) {
 
         <div className="form-group">
           <label htmlFor="course_description">Course Description</label>
-          <input
-            type="text"
-            className="form-control"
+          <textarea
+            value={course_description}
+            onChange={props.handleInputChange}
             id="course_description"
             placeholder="Enter the description"
-            value={course_description}
+            className="form-control"
             name="course_description"
-            onChange={props.handleInputChange}
           />
         </div>
 
         <div className="form-group">
           <label htmlFor="course_length">Course length (minutes)</label>
-          <input
-            type="number"
-            className="form-control"
-            id="course_length"
-            placeholder="Enter the length"
+          <Slider
+            max={120}
+            min={0}
             value={length}
-            name="length"
-            onChange={props.handleInputChange}
+            id="course_length"
+            onChange={props.handleSliderChange}
           />
         </div>
       </fieldset>

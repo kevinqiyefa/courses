@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
 import Courses from '../../components/Courses';
-import AddCourse from '../../components/AddCourse';
+import AddCourse from '../AddCourse';
 
 function Homepage() {
   const { courses, loading } = useSelector(state => state.course);

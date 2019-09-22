@@ -5,7 +5,7 @@ export function fetchCoursesRequest() {
   return async dispatch => {
     try {
       dispatch({ type: t.FETCH_COURSES_REQUEST });
-      // call the API for /courses, auth required
+      // call the API for /courses,
 
       let courses = await callAPI('get', '/courses');
 
@@ -24,4 +24,32 @@ export function fetchCoursesSuccess(courses) {
 
 export function fetchCoursesFail(error) {
   return { type: t.FETCH_COURSES_FAIL, error };
+}
+
+export function addCoursesRequest(course) {
+  return async dispatch => {
+    try {
+      // dispatch({ type: t.FETCH_COURSES_REQUEST });
+
+      // call the API for /courses,
+
+      let newCourse = await callAPI('post', '/courses', course);
+
+      console.log();
+
+      // dispatch the success action creator and the courses that we got back
+      dispatch(addCoursesSuccess(newCourse));
+    } catch (error) {
+      dispatch(addCoursesFail(error));
+      return Promise.reject();
+    }
+  };
+}
+
+export function addCoursesSuccess(course) {
+  return { type: t.ADD_COURSES_SUCCESS, course };
+}
+
+export function addCoursesFail(error) {
+  return { type: t.ADD_COURSES_FAIL, error };
 }
