@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import Notfound from './components/NotFoundPage';
 import { configureStore } from './store';
 import Homepage from './containers/Homepage';
-import './App.css';
 import Header from './components/Header';
 import Course from './containers/Course';
+import './App.css';
 
 const store = configureStore();
 

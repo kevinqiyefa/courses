@@ -4,23 +4,22 @@ import PropTypes from 'prop-types';
 import CourseForm from '../CourseForm';
 import './style.css';
 
-function EditCourse({
+function AddEditCourse({
   state,
   handleInputChange,
   handleSliderChange,
-  isComplete,
   handleSubmit,
   modalTitle,
   submitBtnText
 }) {
-  console.log('EditCourse');
+  const isComplete = state.course_name && state.course_description;
   return (
     <div
       className="modal fade"
-      id="editCourseModal"
+      id="addEditCourseModal"
       tabIndex="-1"
       role="dialog"
-      aria-labelledby="editCourseModalTitle"
+      aria-labelledby="addEditCourseModalTitle"
       aria-hidden="true"
     >
       <div className="modal-dialog modal-dialog-centered" role="document">
@@ -55,9 +54,9 @@ function EditCourse({
             </button>
             <button
               type="button"
-              className={`btn btn-primary ${!isComplete() && 'disabled'}`}
+              className={`btn btn-primary ${!isComplete && 'disabled'}`}
               onClick={handleSubmit}
-              data-dismiss={`${isComplete() && 'modal'}`}
+              data-dismiss={`${isComplete && 'modal'}`}
             >
               {submitBtnText}
             </button>
@@ -68,14 +67,13 @@ function EditCourse({
   );
 }
 
-EditCourse.propTypes = {
+AddEditCourse.propTypes = {
   state: PropTypes.object,
   handleInputChange: PropTypes.func,
   handleSliderChange: PropTypes.func,
-  isComplete: PropTypes.func,
   handleSubmit: PropTypes.func,
   modalTitle: PropTypes.string,
   submitBtnText: PropTypes.string
 };
 
-export default EditCourse;
+export default AddEditCourse;

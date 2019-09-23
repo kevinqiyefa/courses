@@ -54,16 +54,20 @@ export function addCourseFail(error) {
   return { type: t.ADD_COURSES_FAIL, error };
 }
 
-export function patchCourseRequest(courseID) {
+export function patchCourseRequest(courseID, updatedC) {
   return async dispatch => {
     try {
       // dispatch({ type: t.PATCH_COURSES_REQUEST });
 
       // call the API for /courses/id,
 
-      await callAPI('patch', `/courses/${courseID}`);
+      const updatedCourse = await callAPI(
+        'patch',
+        `/courses/${courseID}`,
+        updatedC
+      );
 
-      dispatch(patchCourseSuccess(courseID));
+      dispatch(patchCourseSuccess(courseID, updatedCourse));
     } catch (error) {
       dispatch(patchCourseFail(error));
       return Promise.reject();
@@ -71,8 +75,8 @@ export function patchCourseRequest(courseID) {
   };
 }
 
-export function patchCourseSuccess(courseID) {
-  return { type: t.PATCH_COURSES_SUCCESS, courseID };
+export function patchCourseSuccess(courseID, updatedCourse) {
+  return { type: t.PATCH_COURSES_SUCCESS, courseID, updatedCourse };
 }
 
 export function patchCourseFail(error) {

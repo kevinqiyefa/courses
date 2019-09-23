@@ -20,6 +20,14 @@ export default function coursesReducer(state = DEFAULT_STATE, action) {
         ...state,
         courses: [...state.courses, action.course]
       };
+    case t.PATCH_COURSES_SUCCESS:
+      const updatedCourses = state.courses.map(course =>
+        course.id === action.courseID ? action.updatedCourse : course
+      );
+      return {
+        ...state,
+        courses: updatedCourses
+      };
     case t.DELETE_COURSES_SUCCESS:
       return {
         ...state,

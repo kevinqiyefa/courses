@@ -4,7 +4,8 @@ import { Redirect } from 'react-router';
 
 import {
   fetchCoursesRequest,
-  deleteCourseRequest
+  deleteCourseRequest,
+  patchCourseRequest
 } from '../../store/actions/courses';
 
 import Loader from '../../components/Loader';
@@ -36,9 +37,16 @@ function Course(props) {
   }
 
   const deleteCourse = () => dispatch(deleteCourseRequest(course.id));
+  const patchCourse = updatedCourse => {
+    dispatch(patchCourseRequest(course.id, updatedCourse));
+  };
 
   return course ? (
-    <CourseContent course={course} deleteCourse={deleteCourse} />
+    <CourseContent
+      course={course}
+      deleteCourse={deleteCourse}
+      patchCourse={patchCourse}
+    />
   ) : (
     <Loader />
   );

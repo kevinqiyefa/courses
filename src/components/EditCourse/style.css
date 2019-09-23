@@ -1,9 +1,0 @@
-.add-course-btn.btn-primary.focus,
-.add-course-btn.btn-primary:focus {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-.close-add-course-modal:focus {
-  outline: none;
-}

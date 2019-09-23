@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import EditCourse from '../../components/EditCourse';
+import AddEditCourse from '../../components/AddEditCourse';
 import { addCourseRequest } from '../../store/actions/courses';
 
 class AddCourse extends Component {
@@ -21,12 +21,8 @@ class AddCourse extends Component {
     this.setState({ length: value });
   };
 
-  isComplete = () => {
-    return this.state.course_name && this.state.course_description;
-  };
-
   handleSubmit = () => {
-    if (this.isComplete()) {
+    if (this.state.course_name && this.state.course_description) {
       this.props.addCourseRequest(this.state);
     }
   };
@@ -42,16 +38,15 @@ class AddCourse extends Component {
             type="button"
             className="btn btn-primary add-course-btn"
             data-toggle="modal"
-            data-target="#editCourseModal"
+            data-target="#addEditCourseModal"
           >
             Add Course
           </button>
         </div>
-        <EditCourse
+        <AddEditCourse
           state={this.state}
           handleInputChange={this.handleInputChange}
           handleSliderChange={this.handleSliderChange}
-          isComplete={this.isComplete}
           handleSubmit={this.handleSubmit}
           modalTitle={modalTitle}
           submitBtnText={submitBtnText}

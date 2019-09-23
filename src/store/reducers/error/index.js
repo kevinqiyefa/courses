@@ -24,14 +24,21 @@ export default function errorReducer(state = DEFAULT_STATE, action) {
       return {
         ...state,
         hasError: true,
-        title: 'Unable to Add courses.',
+        title: 'Unable to add course.',
+        message: action.error || ''
+      };
+    case t.PATCH_COURSES_FAIL:
+      return {
+        ...state,
+        hasError: true,
+        title: 'Unable to update course.',
         message: action.error || ''
       };
     case t.DELETE_COURSES_FAIL:
       return {
         ...state,
         hasError: true,
-        title: 'Unable to delete courses.',
+        title: 'Unable to delete course.',
         message: action.error || ''
       };
     default:
