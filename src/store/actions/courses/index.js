@@ -26,7 +26,7 @@ export function fetchCoursesFail(error) {
   return { type: t.FETCH_COURSES_FAIL, error };
 }
 
-export function addCoursesRequest(course) {
+export function addCourseRequest(course) {
   return async dispatch => {
     try {
       // dispatch({ type: t.FETCH_COURSES_REQUEST });
@@ -38,23 +38,48 @@ export function addCoursesRequest(course) {
       console.log();
 
       // dispatch the success action creator and the courses that we got back
-      dispatch(addCoursesSuccess(newCourse));
+      dispatch(addCourseSuccess(newCourse));
     } catch (error) {
-      dispatch(addCoursesFail(error));
+      dispatch(addCourseFail(error));
       return Promise.reject();
     }
   };
 }
 
-export function addCoursesSuccess(course) {
+export function addCourseSuccess(course) {
   return { type: t.ADD_COURSES_SUCCESS, course };
 }
 
-export function addCoursesFail(error) {
+export function addCourseFail(error) {
   return { type: t.ADD_COURSES_FAIL, error };
 }
 
-export function deleteCoursesRequest(courseID) {
+export function patchCourseRequest(courseID) {
+  return async dispatch => {
+    try {
+      // dispatch({ type: t.PATCH_COURSES_REQUEST });
+
+      // call the API for /courses/id,
+
+      await callAPI('patch', `/courses/${courseID}`);
+
+      dispatch(patchCourseSuccess(courseID));
+    } catch (error) {
+      dispatch(patchCourseFail(error));
+      return Promise.reject();
+    }
+  };
+}
+
+export function patchCourseSuccess(courseID) {
+  return { type: t.PATCH_COURSES_SUCCESS, courseID };
+}
+
+export function patchCourseFail(error) {
+  return { type: t.PATCH_COURSES_FAIL, error };
+}
+
+export function deleteCourseRequest(courseID) {
   return async dispatch => {
     try {
       // dispatch({ type: t.delete_COURSES_REQUEST });
@@ -63,18 +88,18 @@ export function deleteCoursesRequest(courseID) {
 
       await callAPI('delete', `/courses/${courseID}`);
 
-      dispatch(deleteCoursesSuccess(courseID));
+      dispatch(deleteCourseSuccess(courseID));
     } catch (error) {
-      dispatch(deleteCoursesFail(error));
+      dispatch(deleteCourseFail(error));
       return Promise.reject();
     }
   };
 }
 
-export function deleteCoursesSuccess(courseID) {
+export function deleteCourseSuccess(courseID) {
   return { type: t.DELETE_COURSES_SUCCESS, courseID };
 }
 
-export function deleteCoursesFail(error) {
+export function deleteCourseFail(error) {
   return { type: t.DELETE_COURSES_FAIL, error };
 }

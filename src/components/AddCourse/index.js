@@ -27,7 +27,7 @@ class AddCourse extends PureComponent {
 
   handleSubmit = () => {
     if (this.isComplete()) {
-      this.props.addCoursesRequest(this.state);
+      this.props.addCourseRequest(this.state);
     }
   };
 
