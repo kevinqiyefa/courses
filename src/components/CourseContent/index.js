@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import CoursesContainer from '../../hoc/CoursesWrapper';
 import './style.css';
 import WarningAlert from '../WarningAlert';
@@ -11,7 +12,7 @@ class CourseContent extends Component {
     length: 45,
     course_name: '',
     course_description: '',
-    students: [],
+    studentID: [],
     isInitialed: false
   };
 
@@ -21,7 +22,7 @@ class CourseContent extends Component {
       length,
       course_name,
       course_description,
-      students
+      studentID
     } = props.course;
     if (!state.isInitialed) {
       return {
@@ -29,7 +30,7 @@ class CourseContent extends Component {
         length,
         course_name,
         course_description,
-        students,
+        studentID,
         isInitialed: true
       };
     }
@@ -69,6 +70,9 @@ class CourseContent extends Component {
           <h5>Length: {course.length} mins</h5>
         </div>
         <div className="course-btns">
+          <button type="button" className="btn btn-success">
+            <Link to="/224/students">View Students</Link>
+          </button>
           <button
             type="button"
             className="btn btn-warning"

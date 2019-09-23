@@ -10,7 +10,7 @@ class AddCourse extends Component {
     length: 45,
     course_name: '',
     course_description: '',
-    students: []
+    studentID: []
   };
 
   handleInputChange = e => {
