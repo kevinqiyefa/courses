@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 
-import { fetchCoursesRequest } from '../../store/actions/courses';
+import {
+  fetchCoursesRequest,
+  deleteCoursesRequest
+} from '../../store/actions/courses';
+
+import Loader from '../../components/Loader';
+import CourseContent from '../../components/CourseContent';
 
 function Course(props) {
   const pathName = props.location.pathname.slice(1);
 
-  const { courses, loading } = useSelector(state => state.course);
+  const { courses } = useSelector(state => state.course);
 
   let course;
 
@@ -30,9 +35,13 @@ function Course(props) {
     return <Redirect to="/" />;
   }
 
-  return <div>course</div>;
-}
+  const deleteCourse = () => dispatch(deleteCoursesRequest(course.id));
 
-Course.propTypes = {};
+  return course ? (
+    <CourseContent course={course} deleteCourse={deleteCourse} />
+  ) : (
+    <Loader />
+  );
+}
 
 export default Course;

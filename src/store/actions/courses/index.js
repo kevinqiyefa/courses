@@ -53,3 +53,28 @@ export function addCoursesSuccess(course) {
 export function addCoursesFail(error) {
   return { type: t.ADD_COURSES_FAIL, error };
 }
+
+export function deleteCoursesRequest(courseID) {
+  return async dispatch => {
+    try {
+      // dispatch({ type: t.delete_COURSES_REQUEST });
+
+      // call the API for /courses/id,
+
+      await callAPI('delete', `/courses/${courseID}`);
+
+      dispatch(deleteCoursesSuccess(courseID));
+    } catch (error) {
+      dispatch(deleteCoursesFail(error));
+      return Promise.reject();
+    }
+  };
+}
+
+export function deleteCoursesSuccess(courseID) {
+  return { type: t.DELETE_COURSES_SUCCESS, courseID };
+}
+
+export function deleteCoursesFail(error) {
+  return { type: t.DELETE_COURSES_FAIL, error };
+}

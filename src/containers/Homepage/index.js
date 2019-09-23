@@ -5,6 +5,7 @@ import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
 import Courses from '../../components/Courses';
 import AddCourse from '../AddCourse';
+import CoursesWrapper from '../../hoc/CoursesWrapper';
 
 function Homepage() {
   const { courses, loading } = useSelector(state => state.course);
@@ -16,18 +17,15 @@ function Homepage() {
 
   const content =
     loading || !courses.length ? <Loader /> : <Courses courses={courses} />;
+  const title = 'Hello, Professor!';
+  const description =
+    "Welcome back! Here're your classes and students for the school year.";
 
   return (
-    <div className="jumbotron container mt-5">
-      <h1 className="display-3">Hello, Professor!</h1>
-      <p className="lead mb-5">
-        Welcome back! Here're your classes and students for the school year.
-      </p>
-
+    <CoursesWrapper title={title} description={description}>
       <AddCourse />
-
       {content}
-    </div>
+    </CoursesWrapper>
   );
 }
 

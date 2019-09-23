@@ -1,0 +1,10 @@
+.course-btns {
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.course-btns > button {
+  width: 5rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}

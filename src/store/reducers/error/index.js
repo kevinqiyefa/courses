@@ -18,14 +18,21 @@ export default function errorReducer(state = DEFAULT_STATE, action) {
         ...state,
         hasError: true,
         title: 'Unable to fetch courses.',
-        message: action.error.message
+        message: action.error || ''
       };
     case t.ADD_COURSES_FAIL:
       return {
         ...state,
         hasError: true,
         title: 'Unable to Add courses.',
-        message: action.error.message
+        message: action.error || ''
+      };
+    case t.DELETE_COURSES_FAIL:
+      return {
+        ...state,
+        hasError: true,
+        title: 'Unable to delete courses.',
+        message: action.error || ''
       };
     default:
       return state;
