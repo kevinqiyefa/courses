@@ -12,7 +12,7 @@ class CourseContent extends Component {
     length: 45,
     course_name: '',
     course_description: '',
-    studentID: [],
+    studentIDs: [],
     isInitialed: false
   };
 
@@ -22,7 +22,7 @@ class CourseContent extends Component {
       length,
       course_name,
       course_description,
-      studentID
+      studentIDs
     } = props.course;
     if (!state.isInitialed) {
       return {
@@ -30,7 +30,7 @@ class CourseContent extends Component {
         length,
         course_name,
         course_description,
-        studentID,
+        studentIDs,
         isInitialed: true
       };
     }

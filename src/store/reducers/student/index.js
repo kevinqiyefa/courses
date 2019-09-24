@@ -15,6 +15,11 @@ export default function studentsReducer(state = DEFAULT_STATE, action) {
         students: action.students,
         loading: false
       };
+    case t.ADD_STUDENT_SUCCESS:
+      return {
+        ...state,
+        students: [...state.students, action.student]
+      };
     default:
       return state;
   }

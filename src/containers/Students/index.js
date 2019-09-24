@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
 
-import { fetchStudentsRequest } from '../../store/actions/students';
+import {
+  fetchStudentsRequest,
+  addStudentRequest
+} from '../../store/actions/students';
 import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
 import { useCheckAndFindCourse } from '../Course/useCourse';
@@ -37,9 +40,17 @@ function Students(props) {
     return <Redirect to="/" />;
   }
 
+  const addStudent = (student, courseID, studentIDs) =>
+    dispatch(addStudentRequest(student, courseID, studentIDs));
+
   const content =
     Object.keys(course).length && !loading ? (
-      <StudentList students={studentsInCourse} />
+      <StudentList
+        students={studentsInCourse}
+        addStudent={addStudent}
+        courseID={+pathName}
+        studentIDs={course.studentIDs}
+      />
     ) : (
       <Loader />
     );

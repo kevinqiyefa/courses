@@ -6,7 +6,7 @@
       "length": 60,
       "course_name": "Algebra I",
       "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "studentID": [2, 5]
+      "studentIDs": [2, 5]
     },
     {
       "id": 222,
@@ -14,14 +14,14 @@
       "length": 45,
       "course_name": "ENGL 101",
       "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "studentID": [1, 3, 4]
+      "studentIDs": [1, 3, 4]
     },
     {
       "subject": "English",
       "length": 45,
       "course_name": "testing",
       "course_description": "test",
-      "studentID": [],
+      "studentIDs": [],
       "id": 224
     }
   ],

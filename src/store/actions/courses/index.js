@@ -35,8 +35,6 @@ export function addCourseRequest(course) {
 
       let newCourse = await callAPI('post', '/courses', course);
 
-      console.log();
-
       // dispatch the success action creator and the courses that we got back
       dispatch(addCourseSuccess(newCourse));
     } catch (error) {
@@ -47,11 +45,11 @@ export function addCourseRequest(course) {
 }
 
 export function addCourseSuccess(course) {
-  return { type: t.ADD_COURSES_SUCCESS, course };
+  return { type: t.ADD_COURSE_SUCCESS, course };
 }
 
 export function addCourseFail(error) {
-  return { type: t.ADD_COURSES_FAIL, error };
+  return { type: t.ADD_COURSE_FAIL, error };
 }
 
 export function patchCourseRequest(courseID, updatedC) {
@@ -76,11 +74,11 @@ export function patchCourseRequest(courseID, updatedC) {
 }
 
 export function patchCourseSuccess(courseID, updatedCourse) {
-  return { type: t.PATCH_COURSES_SUCCESS, courseID, updatedCourse };
+  return { type: t.PATCH_COURSE_SUCCESS, courseID, updatedCourse };
 }
 
 export function patchCourseFail(error) {
-  return { type: t.PATCH_COURSES_FAIL, error };
+  return { type: t.PATCH_COURSE_FAIL, error };
 }
 
 export function deleteCourseRequest(courseID) {
@@ -101,9 +99,9 @@ export function deleteCourseRequest(courseID) {
 }
 
 export function deleteCourseSuccess(courseID) {
-  return { type: t.DELETE_COURSES_SUCCESS, courseID };
+  return { type: t.DELETE_COURSE_SUCCESS, courseID };
 }
 
 export function deleteCourseFail(error) {
-  return { type: t.DELETE_COURSES_FAIL, error };
+  return { type: t.DELETE_COURSE_FAIL, error };
 }

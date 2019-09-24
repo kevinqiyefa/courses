@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
 
-function StudentForm({
-  firstName,
-  lastName,
-  gradeLevel,
-  setFirstName,
-  setLastName,
-  setGradeLevel
-}) {
+function StudentForm({ addStudent, courseID, studentIDs }) {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [gradeLevel, setGradeLevel] = useState(9);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const newStudent = {
+      courseID,
+      first_name: firstName,
+      last_name: lastName,
+      grade_level: gradeLevel
+    };
+
+    addStudent(newStudent, courseID, studentIDs);
+    setFirstName('');
+    setLastName('');
+    setGradeLevel(9);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <fieldset className="text-left">
         <div className="form-group">
           <label htmlFor="firstName">First Name</label>
@@ -23,6 +35,7 @@ function StudentForm({
             placeholder="Enter first name"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
+            required
           />
         </div>
 
@@ -35,6 +48,7 @@ function StudentForm({
             placeholder="Enter last name"
             value={lastName}
             onChange={e => setLastName(e.target.value)}
+            required
           />
         </div>
       </fieldset>
@@ -96,7 +110,7 @@ function StudentForm({
       </fieldset>
 
       <button
-        type="button"
+        type="submit"
         className="btn btn-success font-weight-bold pl-3 pr-3 float-right"
         data-dismiss="modal"
       >
@@ -107,12 +121,9 @@ function StudentForm({
 }
 
 StudentForm.propTypes = {
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
-  gradeLevel: PropTypes.number,
-  setFirstName: PropTypes.func,
-  setLastName: PropTypes.func,
-  setGradeLevel: PropTypes.func
+  addStudent: PropTypes.func,
+  courseID: PropTypes.number,
+  studentIDs: PropTypes.array
 };
 
 export default StudentForm;

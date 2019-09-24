@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
 import StudentForm from '../StudentForm';
 
-function StudentList({ students }) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [gradeLevel, setGradeLevel] = useState(9);
-
+function StudentList({ students, addStudent, courseID, studentIDs }) {
   const tableRows = students.map((s, idx) => (
     <tr key={s.id}>
       <th scope="row">{idx + 1}</th>
@@ -51,12 +47,9 @@ function StudentList({ students }) {
       <div className="collapse container mt-5" id="addStudentFormCollapse">
         <div className="card card-body">
           <StudentForm
-            firstName={firstName}
-            lastName={lastName}
-            gradeLevel={gradeLevel}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-            setGradeLevel={setGradeLevel}
+            addStudent={addStudent}
+            courseID={courseID}
+            studentIDs={studentIDs}
           />
         </div>
       </div>
@@ -91,7 +84,10 @@ function StudentList({ students }) {
 }
 
 StudentList.propTypes = {
-  students: PropTypes.array
+  students: PropTypes.array,
+  addStudent: PropTypes.func,
+  courseID: PropTypes.number,
+  studentIDs: PropTypes.array
 };
 
 export default StudentList;
