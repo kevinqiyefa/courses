@@ -20,6 +20,13 @@ export default function studentsReducer(state = DEFAULT_STATE, action) {
         ...state,
         students: [...state.students, action.student]
       };
+    case t.DELETE_STUDENT_SUCCESS:
+      return {
+        ...state,
+        students: state.students.filter(
+          student => student.id !== action.studentID
+        )
+      };
     default:
       return state;
   }

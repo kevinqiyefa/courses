@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import './style.css';
 import StudentForm from '../StudentForm';
 
-function StudentList({ students, addStudent, courseID, studentIDs }) {
+function StudentList({
+  students,
+  addStudent,
+  deleteStudent,
+  courseID,
+  studentIDs
+}) {
   const tableRows = students.map((s, idx) => (
     <tr key={s.id}>
       <th scope="row">{idx + 1}</th>
@@ -12,19 +18,13 @@ function StudentList({ students, addStudent, courseID, studentIDs }) {
       <td>{s.last_name}</td>
       <td>{s.grade_level}</td>
       <td className="student-btns">
-        <button
-          type="button"
-          className="btn btn-warning"
-          data-toggle="modal"
-          data-target="#addEditCourseModal"
-        >
+        <button type="button" className="btn btn-warning">
           Edit
         </button>
         <button
           type="button"
           className="btn btn-danger"
-          data-toggle="modal"
-          data-target="#deleteWarning"
+          onClick={() => deleteStudent(s.id, courseID, studentIDs)}
         >
           Delete
         </button>
@@ -66,7 +66,7 @@ function StudentList({ students, addStudent, courseID, studentIDs }) {
   ) : (
     <>
       {addStudentFormCollapse}
-      <table className="table table-striped container mt-5">
+      <table className="table table-striped container mt-5 mb-5">
         <thead>
           <tr className="table-primary">
             <th scope="col">#</th>
@@ -86,6 +86,7 @@ function StudentList({ students, addStudent, courseID, studentIDs }) {
 StudentList.propTypes = {
   students: PropTypes.array,
   addStudent: PropTypes.func,
+  deleteStudent: PropTypes.func,
   courseID: PropTypes.number,
   studentIDs: PropTypes.array
 };

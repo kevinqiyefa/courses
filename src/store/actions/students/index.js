@@ -53,3 +53,28 @@ export function addStudentSuccess(student) {
 export function addStudentFail(error) {
   return { type: t.ADD_STUDENT_FAIL, error };
 }
+
+export function deleteStudentRequest(id, courseID, studentIDs) {
+  return async dispatch => {
+    try {
+      await callAPI('delete', `/students/${id}`);
+
+      const newstudentIDs = studentIDs.filter(s => s !== id);
+
+      // dispatch the success action creator and the students that we got back
+      dispatch(deleteStudentSuccess(id));
+      dispatch(patchCourseRequest(courseID, { studentIDs: newstudentIDs }));
+    } catch (error) {
+      dispatch(deleteStudentFail(error));
+      return Promise.reject();
+    }
+  };
+}
+
+export function deleteStudentSuccess(studentID) {
+  return { type: t.DELETE_STUDENT_SUCCESS, studentID };
+}
+
+export function deleteStudentFail(error) {
+  return { type: t.DELETE_STUDENT_FAIL, error };
+}

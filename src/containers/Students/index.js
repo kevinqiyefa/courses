@@ -4,7 +4,8 @@ import { Redirect } from 'react-router';
 
 import {
   fetchStudentsRequest,
-  addStudentRequest
+  addStudentRequest,
+  deleteStudentRequest
 } from '../../store/actions/students';
 import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
@@ -43,11 +44,15 @@ function Students(props) {
   const addStudent = (student, courseID, studentIDs) =>
     dispatch(addStudentRequest(student, courseID, studentIDs));
 
+  const deleteStudent = (id, courseID, studentIDs) =>
+    dispatch(deleteStudentRequest(id, courseID, studentIDs));
+
   const content =
     Object.keys(course).length && !loading ? (
       <StudentList
         students={studentsInCourse}
         addStudent={addStudent}
+        deleteStudent={deleteStudent}
         courseID={+pathName}
         studentIDs={course.studentIDs}
       />
