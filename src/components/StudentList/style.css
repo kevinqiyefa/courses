@@ -24,3 +24,7 @@
 .add-student-btn {
   font-weight: bold;
 }
+
+#addStudentFormCollapse {
+  max-width: 30rem;
+}

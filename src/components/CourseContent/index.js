@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CoursesContainer from '../../hoc/CoursesWrapper';
 import './style.css';
-import WarningAlert from '../WarningAlert';
-import AddEditCourse from '../AddEditCourse';
+import WarningAlert from '../Modals/WarningAlert';
+import AddEditCourse from '../Modals/AddEditCourse';
 
 class CourseContent extends Component {
   state = {

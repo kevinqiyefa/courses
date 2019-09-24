@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import AddEditCourse from '../../components/AddEditCourse';
+import AddEditCourse from '../../components/Modals/AddEditCourse';
 import { addCourseRequest } from '../../store/actions/courses';
 
 class AddCourse extends Component {

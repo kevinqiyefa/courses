@@ -1,0 +1,11 @@
+.grade-radio-btns {
+  display: flex;
+}
+
+.grade-radio-btns > .form-check {
+  margin-right: 1rem;
+}
+
+.grade-radio-btns .form-check-input {
+  margin-top: 0.2rem;
+}
