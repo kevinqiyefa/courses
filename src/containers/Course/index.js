@@ -32,7 +32,7 @@ function Course(props) {
     dispatch(patchCourseRequest(course.id, updatedCourse));
   };
 
-  return course ? (
+  return Object.keys(course).length ? (
     <CourseContent
       course={course}
       deleteCourse={deleteCourse}
