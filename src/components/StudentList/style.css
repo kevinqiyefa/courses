@@ -6,3 +6,21 @@
 .table-striped > tbody > tr:nth-child(even) > th {
   background-color: #dee2e6;
 }
+
+.student-btns > button {
+  width: 5rem;
+}
+
+.student-btns > button:first-child {
+  margin-right: 0.5rem;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.student-btns > button,
+.add-student-btn {
+  font-weight: bold;
+}

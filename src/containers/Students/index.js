@@ -26,24 +26,23 @@ function Students(props) {
       dispatch(fetchCoursesRequest());
     }
     if (!students.length) {
-      console.log('sssss');
       dispatch(fetchStudentsRequest());
     }
-    console.log('sssss+++');
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   findStudents();
-  console.log(studentsInCourse);
 
   if (students.length && !isValid) {
     return <Redirect to="/" />;
   }
 
   const content =
-    Object.keys(course).length && !loading ? <StudentList /> : <Loader />;
-  // const title = 'Hello, Professor!';
-  // const description =
-  //   "Welcome back! Here're your classes and students for the school year.";
+    Object.keys(course).length && !loading ? (
+      <StudentList students={studentsInCourse} />
+    ) : (
+      <Loader />
+    );
 
   return content;
 }

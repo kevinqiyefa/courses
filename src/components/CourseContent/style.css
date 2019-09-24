@@ -9,6 +9,10 @@
   font-weight: bold;
 }
 
+.course-btns > a > button {
+  font-weight: bold;
+}
+
 .course-btns > a {
   margin-right: 0.5rem;
 }
