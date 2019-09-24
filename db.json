@@ -28,30 +28,35 @@
   "students": [
     {
       "id": 1,
+      "courseID": 222,
       "first_name": "Kevin",
       "last_name": "Qi",
       "grade_level": 9
     },
     {
       "id": 2,
+      "courseID": 111,
       "first_name": "Tony",
       "last_name": "So",
       "grade_level": 10
     },
     {
       "id": 3,
+      "courseID": 222,
       "first_name": "Rod",
       "last_name": "Reye",
       "grade_level": 12
     },
     {
       "id": 4,
+      "courseID": 222,
       "first_name": "Robert",
       "last_name": "Amen",
       "grade_level": 10
     },
     {
       "id": 5,
+      "courseID": 111,
       "first_name": "Greg",
       "last_name": "Wu",
       "grade_level": 9

@@ -7,9 +7,9 @@ import { configureStore } from './store';
 import Homepage from './containers/Homepage';
 import Header from './components/Header';
 import Course from './containers/Course';
+import Students from './containers/Students';
 
 import './App.css';
-import Students from './components/Students';
 
 const store = configureStore();
 

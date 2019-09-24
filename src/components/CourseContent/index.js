@@ -70,9 +70,11 @@ class CourseContent extends Component {
           <h5>Length: {course.length} mins</h5>
         </div>
         <div className="course-btns">
-          <button type="button" className="btn btn-success">
-            <Link to="/224/students">View Students</Link>
-          </button>
+          <Link to={`/${course.id}/students`}>
+            <button type="button" className="btn btn-success">
+              View Students
+            </button>
+          </Link>
           <button
             type="button"
             className="btn btn-warning"

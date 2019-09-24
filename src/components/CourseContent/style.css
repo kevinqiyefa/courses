@@ -8,3 +8,11 @@
   margin-right: 0.5rem;
   font-weight: bold;
 }
+
+.course-btns > a {
+  margin-right: 0.5rem;
+}
+.course-btns > a,
+.course-btns > a:hover {
+  background-color: transparent;
+}

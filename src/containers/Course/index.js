@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 
 import {
@@ -10,20 +9,12 @@ import {
 
 import Loader from '../../components/Loader';
 import CourseContent from '../../components/CourseContent';
+import { useCheckAndFindCourse } from './useCourse';
 
 function Course(props) {
   const pathName = props.location.pathname.slice(1);
 
-  const { courses } = useSelector(state => state.course);
-
-  let course;
-
-  const isValidCourseID = () => {
-    course = courses.filter(c => c.id === +pathName)[0] || {};
-    return !!Object.keys(course).length;
-  };
-
-  const dispatch = useDispatch();
+  const [courses, course, dispatch, isValid] = useCheckAndFindCourse(pathName);
 
   useEffect(() => {
     if (!courses.length) {
@@ -32,7 +23,7 @@ function Course(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (courses.length && !isValidCourseID()) {
+  if (courses.length && !isValid) {
     return <Redirect to="/" />;
   }
 
