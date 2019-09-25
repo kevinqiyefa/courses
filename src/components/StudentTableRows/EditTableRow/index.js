@@ -6,21 +6,21 @@ function EditTableRow({
   idx,
   toggleEditing,
   patchStudent,
-  handleIsUpdated
+  handleEditStudents
 }) {
   const [firstName, setFirstName] = useState(student.first_name);
   const [lastName, setLastName] = useState(student.last_name);
   const [gradeLevel, setGradeLevel] = useState(student.grade_level);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const updateStudent = {
       first_name: firstName,
       last_name: lastName,
       grade_level: +gradeLevel
     };
 
-    patchStudent(student.id, updateStudent);
-    handleIsUpdated(true);
+    await patchStudent(student.id, updateStudent);
+    await handleEditStudents(student.id, updateStudent);
   };
 
   return (
@@ -68,7 +68,7 @@ EditTableRow.propTypes = {
   idx: PropTypes.number,
   toggleEditing: PropTypes.func,
   patchStudent: PropTypes.func,
-  handleIsUpdated: PropTypes.func
+  handleEditStudents: PropTypes.func
 };
 
 export default EditTableRow;

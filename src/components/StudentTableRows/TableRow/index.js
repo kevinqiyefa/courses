@@ -7,13 +7,8 @@ function TableRow({
   courseID,
   studentIDs,
   toggleEditing,
-  deleteStudent,
-  handleIsUpdated
+  deleteStudent
 }) {
-  const handleEditing = () => {
-    toggleEditing(student.id);
-    handleIsUpdated(false);
-  };
   return (
     <tr>
       <th scope="row">{idx + 1}</th>
@@ -24,7 +19,7 @@ function TableRow({
         <button
           type="button"
           className="btn btn-warning"
-          onClick={handleEditing}
+          onClick={() => toggleEditing(student.id)}
         >
           Edit
         </button>
@@ -46,8 +41,7 @@ TableRow.propTypes = {
   courseID: PropTypes.number,
   studentIDs: PropTypes.array,
   toggleEditing: PropTypes.func,
-  deleteStudent: PropTypes.func,
-  handleIsUpdated: PropTypes.func
+  deleteStudent: PropTypes.func
 };
 
 export default TableRow;

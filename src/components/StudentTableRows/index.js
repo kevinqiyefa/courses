@@ -6,8 +6,7 @@ import EditTableRow from './EditTableRow';
 
 export class StudentTableRows extends Component {
   state = {
-    students: [...this.props.editableStudents],
-    isUpdated: false
+    students: [...this.props.editableStudents]
   };
 
   static propTypes = {
@@ -19,11 +18,7 @@ export class StudentTableRows extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    if (
-      props.editableStudents.length !== state.students.length ||
-      state.isUpdated
-    ) {
-      console.log('innnn');
+    if (props.editableStudents.length !== state.students.length) {
       return {
         students: [...props.editableStudents]
       };
@@ -33,7 +28,15 @@ export class StudentTableRows extends Component {
     return null;
   }
 
-  handleIsUpdated = bool => this.setState({ isUpdated: bool });
+  handleEditStudents = (id, updatedStudent) => {
+    const updateStudentes = this.state.students.map(student =>
+      student.id === id
+        ? { ...student, ...updatedStudent, isEditing: false }
+        : student
+    );
+
+    this.setState({ students: updateStudentes });
+  };
 
   toggleEditing = id => {
     this.setState({
@@ -62,7 +65,6 @@ export class StudentTableRows extends Component {
           courseID={courseID}
           studentIDs={studentIDs}
           toggleEditing={this.toggleEditing}
-          handleIsUpdated={this.handleIsUpdated}
           deleteStudent={deleteStudent}
         />
       ) : (
@@ -72,13 +74,12 @@ export class StudentTableRows extends Component {
           idx={idx}
           toggleEditing={this.toggleEditing}
           patchStudent={patchStudent}
-          handleIsUpdated={this.handleIsUpdated}
+          handleEditStudents={this.handleEditStudents}
         />
       )
     );
 
   render() {
-    console.log(this.state.students);
     const { deleteStudent, courseID, studentIDs, patchStudent } = this.props;
     return (
       <tbody>
