@@ -27,7 +27,10 @@ function Course(props) {
     return <NotFoundPage />;
   }
 
-  const deleteCourse = () => dispatch(deleteCourseRequest(course.id));
+  const deleteCourse = async () => {
+    await dispatch(deleteCourseRequest(course.id));
+    return props.history.push('/');
+  };
   const patchCourse = updatedCourse => {
     dispatch(patchCourseRequest(course.id, updatedCourse));
   };

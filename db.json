@@ -26,18 +26,10 @@
     {
       "subject": "English",
       "length": 45,
-      "course_name": "testingg",
-      "course_description": "testtt",
+      "course_name": "test",
+      "course_description": "test",
       "studentIDs": [],
       "id": 224
-    },
-    {
-      "subject": "English",
-      "length": 45,
-      "course_name": "a",
-      "course_description": "222",
-      "studentIDs": [],
-      "id": 225
     }
   ],
   "students": [

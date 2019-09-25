@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-import AddEditCourse from '../../components/Modals/AddEditCourse';
-import { addCourseRequest } from '../../store/actions/courses';
+import AddEditCourse from '../Modals/AddEditCourse';
 
 class AddCourse extends Component {
   state = {
@@ -23,7 +21,7 @@ class AddCourse extends Component {
 
   handleSubmit = () => {
     if (this.state.course_name && this.state.course_description) {
-      this.props.addCourseRequest(this.state);
+      this.props.addCourse(this.state);
     }
   };
 
@@ -56,7 +54,4 @@ class AddCourse extends Component {
   }
 }
 
-export default connect(
-  null,
-  { addCourseRequest }
-)(AddCourse);
+export default AddCourse;
