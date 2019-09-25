@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router';
+import NotFoundPage from '../../components/NotFoundPage';
 
 import {
   fetchStudentsRequest,
@@ -42,7 +42,7 @@ function Students(props) {
   findStudents();
 
   if (students.length && !isValid) {
-    return <Redirect to="/" />;
+    return <NotFoundPage />;
   }
 
   const addStudent = (student, courseID, studentIDs) =>

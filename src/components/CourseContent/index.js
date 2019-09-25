@@ -8,36 +8,8 @@ import AddEditCourse from '../Modals/AddEditCourse';
 
 class CourseContent extends Component {
   state = {
-    subject: 'English',
-    length: 45,
-    course_name: '',
-    course_description: '',
-    studentIDs: [],
-    isInitialed: false
+    ...this.props.course
   };
-
-  static getDerivedStateFromProps(props, state) {
-    const {
-      subject,
-      length,
-      course_name,
-      course_description,
-      studentIDs
-    } = props.course;
-    if (!state.isInitialed) {
-      return {
-        subject,
-        length,
-        course_name,
-        course_description,
-        studentIDs,
-        isInitialed: true
-      };
-    }
-
-    // Return null if the state hasn't changed
-    return null;
-  }
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });

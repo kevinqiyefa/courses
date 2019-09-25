@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router';
+import NotFoundPage from '../../components/NotFoundPage';
 
 import {
   fetchCoursesRequest,
@@ -24,7 +24,7 @@ function Course(props) {
   }, []);
 
   if (courses.length && !isValid) {
-    return <Redirect to="/" />;
+    return <NotFoundPage />;
   }
 
   const deleteCourse = () => dispatch(deleteCourseRequest(course.id));
