@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import CoursesContainer from '../CoursesWrapper';
+import CoursesWrapper from '../CoursesWrapper';
 import './style.css';
 import WarningAlert from '../Modals/WarningAlert';
 import AddEditCourse from '../Modals/AddEditCourse';
@@ -33,7 +33,7 @@ class CourseContent extends Component {
     const submitBtnText = 'Edit Course';
 
     return (
-      <CoursesContainer
+      <CoursesWrapper
         title={course.course_name}
         description={course.course_description}
       >
@@ -73,7 +73,7 @@ class CourseContent extends Component {
           modalTitle={modalTitle}
           submitBtnText={submitBtnText}
         />
-      </CoursesContainer>
+      </CoursesWrapper>
     );
   }
 }

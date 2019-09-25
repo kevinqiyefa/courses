@@ -7,7 +7,7 @@ import {
 } from '../../store/actions/courses';
 import { fetchStudentsRequest } from '../../store/actions/students';
 import Loader from '../../components/Loader';
-import Courses from '../../components/Courses';
+import CourseCards from '../../components/CourseCards';
 import AddCourse from '../../components/AddCourse';
 import CoursesWrapper from '../../components/CoursesWrapper';
 
@@ -23,7 +23,12 @@ function Homepage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const content = loading ? <Loader /> : <Courses courses={courses} />;
+  const sortByIdCourses = courses.sort((a, b) => b.id - a.id);
+  const content = loading ? (
+    <Loader />
+  ) : (
+    <CourseCards courses={sortByIdCourses} />
+  );
   const title = 'Hello, Professor!';
   const description =
     "Welcome back! Here're your classes and students for the school year.";

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './style.css';
 
-function Courses({ courses }) {
+function CourseCards({ courses }) {
   const displayCourses = courses.map(c => (
     <Link
       className="card border-primary mb-3 card-link-el"
@@ -25,8 +25,8 @@ function Courses({ courses }) {
   return displayCourses;
 }
 
-Courses.propTypes = {
+CourseCards.propTypes = {
   courses: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default Courses;
+export default CourseCards;
