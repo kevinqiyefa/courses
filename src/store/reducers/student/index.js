@@ -20,6 +20,14 @@ export default function studentsReducer(state = DEFAULT_STATE, action) {
         ...state,
         students: [...state.students, action.student]
       };
+    case t.PATCH_STUDENT_SUCCESS:
+      const updatedStudents = state.students.map(student =>
+        student.id === action.studentID ? action.updatedStudent : student
+      );
+      return {
+        ...state,
+        students: updatedStudents
+      };
     case t.DELETE_STUDENT_SUCCESS:
       return {
         ...state,

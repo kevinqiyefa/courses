@@ -5,7 +5,8 @@ import NotFoundPage from '../../components/NotFoundPage';
 import {
   fetchStudentsRequest,
   addStudentRequest,
-  deleteStudentRequest
+  deleteStudentRequest,
+  patchStudentRequest
 } from '../../store/actions/students';
 import { fetchCoursesRequest } from '../../store/actions/courses';
 import Loader from '../../components/Loader';
@@ -50,6 +51,8 @@ function Students(props) {
 
   const deleteStudent = (id, courseID, studentIDs) =>
     dispatch(deleteStudentRequest(id, courseID, studentIDs));
+  const patchStudent = (studentID, updatedStudent) =>
+    dispatch(patchStudentRequest(studentID, updatedStudent));
 
   const content =
     Object.keys(course).length && !loading ? (
@@ -59,6 +62,7 @@ function Students(props) {
         deleteStudent={deleteStudent}
         courseID={+pathName}
         studentIDs={course.studentIDs}
+        patchStudent={patchStudent}
       />
     ) : (
       <Loader />

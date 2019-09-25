@@ -10,7 +10,8 @@ function StudentList({
   addStudent,
   deleteStudent,
   courseID,
-  studentIDs
+  studentIDs,
+  patchStudent
 }) {
   const addStudentFormCollapse = (
     <>
@@ -68,6 +69,7 @@ function StudentList({
           deleteStudent={deleteStudent}
           courseID={courseID}
           studentIDs={studentIDs}
+          patchStudent={patchStudent}
         />
       </table>
     </>
@@ -78,6 +80,7 @@ StudentList.propTypes = {
   students: PropTypes.array,
   addStudent: PropTypes.func,
   deleteStudent: PropTypes.func,
+  patchStudent: PropTypes.func,
   courseID: PropTypes.number,
   studentIDs: PropTypes.array
 };

@@ -78,3 +78,28 @@ export function deleteStudentSuccess(studentID) {
 export function deleteStudentFail(error) {
   return { type: t.DELETE_STUDENT_FAIL, error };
 }
+
+export function patchStudentRequest(studentID, updatedS) {
+  return async dispatch => {
+    try {
+      const updatedStudent = await callAPI(
+        'patch',
+        `/students/${studentID}`,
+        updatedS
+      );
+
+      dispatch(patchStudentSuccess(studentID, updatedStudent));
+    } catch (error) {
+      dispatch(patchStudentFail(error));
+      return Promise.reject();
+    }
+  };
+}
+
+export function patchStudentSuccess(studentID, updatedStudent) {
+  return { type: t.PATCH_STUDENT_SUCCESS, studentID, updatedStudent };
+}
+
+export function patchStudentFail(error) {
+  return { type: t.PATCH_STUDENT_FAIL, error };
+}

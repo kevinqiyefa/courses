@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function EditTableRow({ student, idx, toggleEditing }) {
-  const handleChange = e => {
-    console.log(e.target.value);
+function EditTableRow({
+  student,
+  idx,
+  toggleEditing,
+  patchStudent,
+  handleIsUpdated
+}) {
+  const [firstName, setFirstName] = useState(student.first_name);
+  const [lastName, setLastName] = useState(student.last_name);
+  const [gradeLevel, setGradeLevel] = useState(student.grade_level);
+
+  const handleSave = () => {
+    const updateStudent = {
+      first_name: firstName,
+      last_name: lastName,
+      grade_level: +gradeLevel
+    };
+
+    patchStudent(student.id, updateStudent);
+    handleIsUpdated(true);
   };
+
   return (
     <tr key={student.id}>
       <th scope="row">{idx + 1}</th>
@@ -12,23 +30,23 @@ function EditTableRow({ student, idx, toggleEditing }) {
         <input
           type="text"
           className="form-control"
-          value={student.first_name}
-          onChange={handleChange}
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
         />
       </td>
       <td>
         <input
           type="text"
           className="form-control"
-          value={student.last_name}
-          onChange={handleChange}
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
         />
       </td>
       <td>
         <select
           className="form-control"
-          value={student.grade_level}
-          onChange={handleChange}
+          value={gradeLevel}
+          onChange={e => setGradeLevel(e.target.value)}
         >
           <option value={9}>9</option>
           <option value={10}>10</option>
@@ -37,11 +55,7 @@ function EditTableRow({ student, idx, toggleEditing }) {
         </select>
       </td>
       <td className="student-btns">
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={() => toggleEditing(student.id)}
-        >
+        <button type="button" className="btn btn-success" onClick={handleSave}>
           Save
         </button>
       </td>
@@ -52,7 +66,9 @@ function EditTableRow({ student, idx, toggleEditing }) {
 EditTableRow.propTypes = {
   student: PropTypes.object,
   idx: PropTypes.number,
-  toggleEditing: PropTypes.func
+  toggleEditing: PropTypes.func,
+  patchStudent: PropTypes.func,
+  handleIsUpdated: PropTypes.func
 };
 
 export default EditTableRow;
