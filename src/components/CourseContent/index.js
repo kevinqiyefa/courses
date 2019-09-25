@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import CoursesContainer from '../../hoc/CoursesWrapper';
+import CoursesContainer from '../CoursesWrapper';
 import './style.css';
 import WarningAlert from '../Modals/WarningAlert';
 import AddEditCourse from '../Modals/AddEditCourse';

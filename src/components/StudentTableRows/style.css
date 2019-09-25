@@ -1,0 +1,14 @@
+.student-btns > button {
+  width: 5rem;
+  margin: 0.25rem 0.5rem;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.student-btns > button,
+.add-student-btn {
+  font-weight: bold;
+}

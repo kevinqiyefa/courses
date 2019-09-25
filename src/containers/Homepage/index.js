@@ -6,7 +6,7 @@ import { fetchStudentsRequest } from '../../store/actions/students';
 import Loader from '../../components/Loader';
 import Courses from '../../components/Courses';
 import AddCourse from '../AddCourse';
-import CoursesWrapper from '../../hoc/CoursesWrapper';
+import CoursesWrapper from '../../components/CoursesWrapper';
 
 function Homepage() {
   const { courses, loading } = useSelector(state => state.course);

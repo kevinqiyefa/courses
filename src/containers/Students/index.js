@@ -25,13 +25,17 @@ function Students(props) {
     return studentsInCourse;
   };
 
-  useEffect(() => {
+  const fetchData = async () => {
     if (!courses.length) {
-      dispatch(fetchCoursesRequest());
+      await dispatch(fetchCoursesRequest());
     }
     if (!students.length) {
-      dispatch(fetchStudentsRequest());
+      await dispatch(fetchStudentsRequest());
     }
+  };
+
+  useEffect(() => {
+    fetchData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

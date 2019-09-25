@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 import StudentForm from '../StudentForm';
+import StudentTableRows from '../StudentTableRows';
 
 function StudentList({
   students,
@@ -11,27 +12,6 @@ function StudentList({
   courseID,
   studentIDs
 }) {
-  const tableRows = students.map((s, idx) => (
-    <tr key={s.id}>
-      <th scope="row">{idx + 1}</th>
-      <td>{s.first_name}</td>
-      <td>{s.last_name}</td>
-      <td>{s.grade_level}</td>
-      <td className="student-btns">
-        <button type="button" className="btn btn-warning">
-          Edit
-        </button>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={() => deleteStudent(s.id, courseID, studentIDs)}
-        >
-          Delete
-        </button>
-      </td>
-    </tr>
-  ));
-
   const addStudentFormCollapse = (
     <>
       <button
@@ -77,7 +57,12 @@ function StudentList({
           </tr>
         </thead>
 
-        <tbody className="student-table-body">{tableRows}</tbody>
+        <StudentTableRows
+          students={students}
+          deleteStudent={deleteStudent}
+          courseID={courseID}
+          studentIDs={studentIDs}
+        />
       </table>
     </>
   );
