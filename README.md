@@ -1,7 +1,8 @@
-## Features:
+## Technologies:
 > 1. React Hooks
 > 2. Redux Hooks
 > 3. JSON Server
+> 4. Bootstrap
 
 ## Instructions:
 
