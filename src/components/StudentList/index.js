@@ -36,6 +36,12 @@ function StudentList({
     </>
   );
 
+  const editableStudents = studentArray =>
+    studentArray.map(s => {
+      s.isEditing = false;
+      return s;
+    });
+
   return !students.length ? (
     <>
       <h3 className="container mt-5">
@@ -58,7 +64,7 @@ function StudentList({
         </thead>
 
         <StudentTableRows
-          students={students}
+          editableStudents={editableStudents(students)}
           deleteStudent={deleteStudent}
           courseID={courseID}
           studentIDs={studentIDs}
