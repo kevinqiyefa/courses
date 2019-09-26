@@ -16,5 +16,5 @@
 > 
 > 5. Open a new window in the terminal, run `npm start`
 
-Basic components diagram: 
-![alt text](/Course.png)
+##Basic components diagram: 
+![diagram](/Course.png)
