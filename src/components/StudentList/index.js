@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
@@ -13,6 +13,23 @@ function StudentList({
   studentIDs,
   patchStudent
 }) {
+  const [filterInput, setFilterInput] = useState('');
+
+  let filteredStudents = [...students];
+
+  const regexCheck = (str, filteredStr) => {
+    var patt = new RegExp(`^${filteredStr.toLowerCase()}`);
+    return patt.test(str);
+  };
+
+  (() => {
+    filteredStudents = students.filter(
+      student =>
+        regexCheck(student.first_name.toLowerCase(), filterInput) ||
+        regexCheck(student.last_name.toLowerCase(), filterInput)
+    );
+  })();
+
   const addStudentFormCollapse = (
     <>
       <button
@@ -43,6 +60,7 @@ function StudentList({
       return s;
     });
 
+  console.log('filterr', filteredStudents);
   return !students.length ? (
     <>
       <h3 className="container mt-5">
@@ -53,6 +71,22 @@ function StudentList({
   ) : (
     <>
       {addStudentFormCollapse}
+      <div
+        className="form-group container  mt-5 mb-5 text-left"
+        style={{ maxWidth: '30rem' }}
+      >
+        <label htmlFor="searchStudents">
+          <h5> Search Students</h5>
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="searchStudents"
+          placeholder="enter first or last name"
+          value={filterInput}
+          onChange={e => setFilterInput(e.target.value)}
+        />
+      </div>
       <table className="table table-striped container mt-5 mb-5">
         <thead>
           <tr className="table-primary">
@@ -65,7 +99,7 @@ function StudentList({
         </thead>
 
         <StudentTableRows
-          editableStudents={editableStudents(students)}
+          editableStudents={editableStudents(filteredStudents)}
           deleteStudent={deleteStudent}
           courseID={courseID}
           studentIDs={studentIDs}

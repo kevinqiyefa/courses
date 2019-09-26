@@ -80,6 +80,7 @@ export class StudentTableRows extends Component {
     );
 
   render() {
+    console.log(this.props.editableStudents);
     const { deleteStudent, courseID, studentIDs, patchStudent } = this.props;
     return (
       <tbody>

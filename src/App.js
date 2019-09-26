@@ -17,8 +17,8 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
         <div className="App">
+          <Header />
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/:courseID" component={Course} />

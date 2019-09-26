@@ -1,9 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Header from './components/Header';
+import Homepage from './containers/Homepage';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('<App />', () => {
+  let wrapper;
+
+  wrapper = shallow(<App />);
+
+  it('shows a Header component', () => {
+    expect(wrapper.find(Header).length).toEqual(1);
+  });
+
+  it('shows a Homepage component', () => {
+    wrapper = mount(<App />);
+    expect(wrapper.find(Homepage).length).toEqual(1);
+  });
+
+  it('matches snapshot', () => {
+    const serialized = toJson(wrapper);
+    expect(serialized).toMatchSnapshot();
+  });
 });
