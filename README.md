@@ -16,5 +16,12 @@
 > 
 > 5. Open a new window in the terminal, run `npm start`
 
+## Functionalities: 
+> 1. A teacher may view existing classes, modify details of an existing class (e.g., subject, period), create a new class, delete an existing class.
+> 
+> 2. A teacher should be able to view existing students, edit a student’s details (e.g., name, grade level), add a new student, remove a student.
+>
+> 3. A teacher can search for students by first or last name.
+
 ## Basic components diagram: 
 ![diagram](/Course.png)
