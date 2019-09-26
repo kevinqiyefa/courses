@@ -60,7 +60,6 @@ function StudentList({
       return s;
     });
 
-  console.log('filterr', filteredStudents);
   return !students.length ? (
     <>
       <h3 className="container mt-5">
