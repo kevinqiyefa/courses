@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CourseCards Component matches snapshot 1`] = `
+<Link
+  className="card border-primary mb-3 card-link-el"
+  key="111"
+  to="/111"
+>
+  <h2
+    className="card-header"
+  >
+    Algebra I
+  </h2>
+  <div
+    className="card-body"
+  >
+    <div
+      className="course-card-subject"
+    >
+      <h5>
+        Subject: 
+        Math
+      </h5>
+      <h5>
+        Length: 
+        60
+         mins
+      </h5>
+    </div>
+    <p
+      className="card-text text-left"
+    >
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </p>
+  </div>
+</Link>
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v4';
 import { Link } from 'react-router-dom';
 
 import './style.css';
@@ -9,7 +8,7 @@ function CourseCards({ courses }) {
   const displayCourses = courses.map(c => (
     <Link
       className="card border-primary mb-3 card-link-el"
-      key={uuid()}
+      key={c.id}
       to={`/${c.id}`}
     >
       <h2 className="card-header">{c.course_name}</h2>

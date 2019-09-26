@@ -2,42 +2,42 @@
 
 exports[`<App /> matches snapshot 1`] = `
 <App>
-  <div
-    className="App"
-  >
-    <Provider
-      store={
-        Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        }
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
       }
-    >
-      <BrowserRouter>
-        <Router
-          history={
-            Object {
-              "action": "POP",
-              "block": [Function],
-              "createHref": [Function],
-              "go": [Function],
-              "goBack": [Function],
-              "goForward": [Function],
-              "length": 1,
-              "listen": [Function],
-              "location": Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              },
-              "push": [Function],
-              "replace": [Function],
-            }
+    }
+  >
+    <BrowserRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
           }
+        }
+      >
+        <div
+          className="App"
         >
           <Header>
             <nav
@@ -480,9 +480,9 @@ exports[`<App /> matches snapshot 1`] = `
               </Homepage>
             </Route>
           </Switch>
-        </Router>
-      </BrowserRouter>
-    </Provider>
-  </div>
+        </div>
+      </Router>
+    </BrowserRouter>
+  </Provider>
 </App>
 `;

@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CourseContent Component matches snapshot 1`] = `
+<CoursesWrapper
+  description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  title="Algebra I"
+>
+  <div
+    className="course-card-subject"
+  >
+    <h5>
+      Subject: 
+      Math
+    </h5>
+    <h5>
+      Length: 
+      60
+       mins
+    </h5>
+  </div>
+  <div
+    className="course-btns"
+  >
+    <Link
+      to="/111/students"
+    >
+      <button
+        className="btn btn-success"
+        type="button"
+      >
+        View Students
+      </button>
+    </Link>
+    <button
+      className="btn btn-warning"
+      data-target="#addEditCourseModal"
+      data-toggle="modal"
+      type="button"
+    >
+      Edit
+    </button>
+    <button
+      className="btn btn-danger"
+      data-target="#deleteWarning"
+      data-toggle="modal"
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
+  <WarningAlert
+    message="Are you sure you want to do this?"
+  />
+  <AddEditCourse
+    handleInputChange={[Function]}
+    handleSliderChange={[Function]}
+    handleSubmit={[Function]}
+    modalTitle="Editing a course!"
+    state={
+      Object {
+        "course_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "course_name": "Algebra I",
+        "id": 111,
+        "length": 60,
+        "studentIDs": Array [
+          2,
+          5,
+        ],
+        "subject": "Math",
+      }
+    }
+    submitBtnText="Edit Course"
+  />
+</CoursesWrapper>
+`;
